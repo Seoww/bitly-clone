@@ -1,2 +1,76 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="/css/application.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	    <script src="/js/application.js"></script>
+	</head>
+
+	<body>
+		<div class="main">
+
+			<div class="header">
+				<nav class="navbar navbar-default">
+				  <div class="container-fluid">
+				    <div class="navbar-header">
+				      <button type="button" class="navbar-toggle orange" data-toggle="collapse" data-target="#myNavbar">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>                        
+				      </button>
+				      <a class="navbar-brand" href="#">BITLY</a>
+				    </div>
+				    <div class="collapse navbar-collapse" id="myNavbar">
+				      <ul class="nav navbar-nav">
+				        <li class="active"><a href="#">HOME</a></li>
+				        <li><a href="#">TOUR</a></li>
+				        <li><a href="#">ENTERPRISE</a></li>
+				        <li><a href="#">BLOG</a></li>
+				      </ul>
+				      <ul class="nav navbar-nav navbar-right">
+				        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+				        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				      </ul>
+				    </div>
+				  </div>
+				</nav>
+			</div>
+
+			<div class="container-fluid">
+			  <h1 class="center white">THE LINK KNOWS ALL. SO CAN YOU</h1>
+			  <p class="center white">Measure your links with Bitly, the world's leading link management platform.</p><br>
+				
+		      <form id="url_form" class="center" action="/geturl" method="post">
+			      	<div class="row wrap center">
+				     <input id="text_field" type="text" name="user_url">
+				     <input id="button" type="submit" value="Submit">
+				    </div>
+			  </form>
+			  
+			  <div id="errors">
+			  </div>
+			</div>
+		</div>
+		
+
+		<table id= "url_table" style = "width:100%">
+			<tr>
+				<th> Long Url </th>
+				<th> Short Url </th>
+				<th> click count </th>
+			</tr>
+			
+			<%  @all_url.each do |x| %>
+				<tr>
+					<td> <%= x.long_url %> </td> 
+					<td> <a href= <%= x.short_url%> target="_blank"> <%= x.short_url%> </a> </td>
+					<td> <%= x.click_count %> </td>
+				</tr>
+			<% end %>
+
+		</table>
+	</body>
+</html>
