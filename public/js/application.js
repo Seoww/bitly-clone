@@ -14,16 +14,17 @@ $(document).ready(function(){
 			success: function(data){
 				if (data.success){
 					console.log(data)
+					$('#errors').empty()
 					$('#url_table').append('\
 					<tr>\
-				    <td>' + data.long_url + '</td>\
-				    <td>' + data.short_url + '</td>\
-				    <td>' + data.click_count +'</td>\
+				    <td>' + data.url.long_url + '</td>\
+				    <td>' + '<a href= data.url.short_url target="_blank">' + data.url.short_url + '</a>' + '</td>\
+				    <td>' + data.url.click_count +'</td>\
 				    ')
 				} else {
-					$("#errors").append('<p>'+ "your url is not valid, try something like https://www.example.com" +'</p>')
+					$("#errors").html('<p>'+ "your url is not valid, try something like https://www.example.com" +'</p>')
 				}
-				}// end of success
+				}	
 			})
 		})// end of ajax
 	}) // function e end

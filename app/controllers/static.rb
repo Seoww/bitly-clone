@@ -8,16 +8,10 @@ post '/geturl' do
 	@new_url = Link.new(long_url: params[:user_url])
 	@new_url.short_url = @new_url.shorten
 	 if @new_url.save 
-	# 	# { @new_url.to_json
 		{ success: true, url: @new_url }.to_json
-	# 	#redirect "/"
 	 else 
-	# 	@errors = @new_url.errors.messages
 	 	@all_url = Link.all
-	 	# @errors.to_json
 	 	{ success: false, error: @errors}.to_json
-	# 	@errors
-	# 	#erb :"static/index"
 	 end
 end 
 
