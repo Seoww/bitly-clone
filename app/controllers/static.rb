@@ -19,7 +19,7 @@ get '/done' do
 	erb :"static/done"
 end  
 
-get'/:short_url' do 
+get '/:short_url' do 
 	x = Link.find_by(short_url: params[:short_url])
 	x.click_count += 1
 	x.save

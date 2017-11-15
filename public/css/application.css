@@ -3,9 +3,9 @@
 }
 
 .main{
-	height: 500px;
-	background-image: url("/img/desktop_edited.jpg");
-	background-position: top center;
+	height: 800px;
+	background-image: url("/img/bitly.jpg");
+	background-size: cover;
 	background-repeat: no-repeat;
 	width: 100%;
 }
@@ -14,13 +14,14 @@
 	background-color: orange;
 }
 
-.header{
-	background-color: #ff9933;
+.navbar-custom{
+	background-color: transparent;
 }
 
-.navbar-header{
-	color: orange;
+.navbar-custom .navbar-brand{
+	color: #ff9933;
 }
+
 
 .white{
 	color: white;
@@ -62,8 +63,17 @@
 	background-color: red;
 }
 
-table, th, td{
-	border: 1px solid;
+table{
 	border-collapse: collapse;
-	background-color: skyblue;
+	margin: auto;
+	width: 100%;
+}
+
+th, td{	
+	border: 1px solid #ffd699;
+	padding: 10px;
+}
+
+tr:nth-child(even){
+	background-color: #ffd699;
 }
